@@ -40,7 +40,7 @@ class TestDemoJUnitTest
 	//  Add Positive Arguments
 		static Stream<Arguments> argumentsForAddPositive()
 		{	return Stream.of( arguments(2,4,6,false),
-				              arguments(3,7,8, true),
+				              arguments(3,7,8, true)
 				);
 		}
 }  // END CLASS
