@@ -2,14 +2,15 @@ package com.promineotech;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-
 
 class TestDemoJUnitTest 
 {
@@ -40,7 +41,20 @@ class TestDemoJUnitTest
 	//  Add Positive Arguments
 		static Stream<Arguments> argumentsForAddPositive()
 		{	return Stream.of( arguments(2,4,6,false),
-				              arguments(3,7,8, true)
+				              arguments(3,7,8, true),
+				              arguments(-3,7,8, false),
+				              arguments(0,-7,8, false)
 				);
 		}
+		
+	// Pairs of Numbers Added
+		@Test
+		private Boolean assertThatPairsOfPositiveNumbersAreAddedCorrectly() {
+			assertThat(testDemo.addPositive(4, 5)).isEqualTo(9);
+			assertThat(testDemo.addPositive(40,50)).isEqualTo(90);
+			return null;
+			
+		}
+		
+	//  
 }  // END CLASS
